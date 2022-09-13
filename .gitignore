@@ -1,0 +1,25 @@
+###
+ # GitIgnore file.
+ # Prevents git from commiting any unwanted files.
+ ##
+
+# Do not track system files.
+.DS_Store
+Thumbs.db
+
+
+# Do not track environment settings.
+.env/
+.idea/
+.venv/
+.vs/
+.vscode/
+env/
+idea/
+venv/
+vs/
+vscode/
+workspace/local_env/
+env.py
+
+
