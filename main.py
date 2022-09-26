@@ -1,6 +1,7 @@
 from tkinter import *
 import mpmath
 import sympy
+import pytest
 
 window=Tk()
 
