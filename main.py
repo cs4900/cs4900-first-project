@@ -33,7 +33,7 @@ class MainUI:
         # set default value to none
         selected.set(None)
         # trace selected variable and setup callback to call change_ui when value changed
-        selected.trace_add("write", lambda var, index, operation:self.change_ui(selected))
+        selected.trace_add("write", lambda var, index, operation:self.change_frame(selected))
 
         # create dropdown box
         drop = OptionMenu(self.root, selected, *options)
