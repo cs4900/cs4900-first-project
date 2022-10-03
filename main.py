@@ -5,11 +5,10 @@ import mpmath
 import sympy
 import pytest
 
-first = 1
-
 class MainUI:
     def __init__(self):
         self.root = Tk()
+        self.currentFrame = None
         # render test window
         self.test_window()
 
@@ -45,13 +44,18 @@ class MainUI:
     def change_frame(self, selected):
         option = selected.get()
         if option == "frame1":
-            self.frame1()
+            # unpack current frame
+            self.unpack_frame(self.currentFrame)
+            # pack next frame and set currentFrame as packed frame
+            self.currentFrame = self.frame1()
         elif option == "frame2":
-            self.frame2()
+            self.unpack_frame(self.currentFrame)
+            self.currentFrame = self.frame2()
 
     # unpack frame when switched off
     def unpack_frame(self, frame):
-        pass
+        if frame is not None:
+            frame.destroy()
 
     # test frame 1
     def frame1(self):
@@ -59,6 +63,7 @@ class MainUI:
         label = Label(frame, text="you are in frame1", justify=CENTER)
         label.pack()
         frame.pack()
+        return frame
 
     # test frame 2
     def frame2(self):
@@ -66,6 +71,7 @@ class MainUI:
         label = Label(frame, text="you are in frame2", justify=CENTER)
         label.pack()
         frame.pack()
+        return frame
 
 
 if __name__ == "__main__":
