@@ -43,14 +43,8 @@ class MainUI:
     # event handler for when value is changed in dropdown
     def change_frame(self, selected):
         option = selected.get()
-        if option == "frame1":
-            # unpack current frame
-            self.unpack_frame(self.currentFrame)
-            # pack next frame and set currentFrame as packed frame
-            self.currentFrame = self.frame1()
-        elif option == "frame2":
-            self.unpack_frame(self.currentFrame)
-            self.currentFrame = self.frame2()
+        self.unpack_frame(self.currentFrame)
+        getattr(self, option)()
 
     # unpack frame when switched off
     def unpack_frame(self, frame):
@@ -59,7 +53,8 @@ class MainUI:
 
     # test frame 1
     def frame1(self):
-        frame = Frame(self.root)
+        frame = Frame()
+        self.currentFrame = frame
         label = Label(frame, text="you are in frame1", justify=CENTER)
         label.pack()
         frame.pack()
@@ -67,7 +62,8 @@ class MainUI:
 
     # test frame 2
     def frame2(self):
-        frame = Frame(self.root)
+        frame = Frame()
+        self.currentFrame = frame
         label = Label(frame, text="you are in frame2", justify=CENTER)
         label.pack()
         frame.pack()
