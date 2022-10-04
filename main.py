@@ -42,10 +42,11 @@ class MainUI:
 
     # event handler for when value is changed in dropdown
     def change_frame(self, selected):
+        # value from the dropbox
         option = selected.get()
         # unpack current frame
         self.unpack_frame(self.currentFrame)
-        # load frame based on selected frame. ex: option = "frame1," will run self.frame()
+        # load frame based on selected frame. ex: option = "frame1," will run self.frame1()
         getattr(self, option)()
 
     # unpack frame when switched off
