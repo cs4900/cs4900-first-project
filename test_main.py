@@ -12,5 +12,3 @@ def closest_points_test():
 def convex_hull_test():
     points = [(0,3), (2,2), (1,1), (2,1), (3,0), (0,0), (3,3)]
     assert find_convex_hull(points) == [[0,3], [0,0], [3,0], [3,3]]
-
-
